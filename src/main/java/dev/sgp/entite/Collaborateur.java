@@ -5,6 +5,8 @@ import java.time.ZonedDateTime;
 
 public class Collaborateur {
 	
+	private static Integer compteur = 0;
+	private final static String SOCIETE = "BigBucksCorp";
 	
 	private String matricule;
 	private String nom;
@@ -17,7 +19,19 @@ public class Collaborateur {
 	private ZonedDateTime heureCreation;
 	private boolean actif;
 	
-	
+	public Collaborateur(String nom, String prenom, LocalDate dateNaissance, String adresse, String numSecu) {
+		this.nom = nom;
+		this.prenom = prenom;
+		this.dateNaissance = dateNaissance;
+		this.adresse = adresse;
+		this.numSecu = numSecu;
+		this.matricule = compteur.toString();
+		compteur++;
+		this.emailPro = nom+"."+prenom+"@"+SOCIETE+".com";
+		this.photo = "FAKE_PHOTO";
+		this.heureCreation = ZonedDateTime.now();
+		this.actif = true;
+	}
 	
 	
 	@Override
