@@ -1,8 +1,19 @@
 <web-app>
 	<display-name>sgp</display-name>
+	
+	<filter>
+		<filter-name>FrequentationFilter</filter-name>
+		<filter-class>dev.sgp.filtre.FrequentationFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>FrequentationFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
 	<servlet>
 		<servlet-name>ListerCollaborateursController</servlet-name>
-		<servlet-class>dev.sgp.web.ListerCollaborateursController</servlet-class>
+		<servlet-class>dev.sgp.web.ListerCollaborateursController
+		</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>ListerCollaborateursController</servlet-name>
@@ -10,10 +21,20 @@
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>EditerCollaborateurControlleur</servlet-name>
-		<servlet-class>dev.sgp.web.EditerCollaborateurControlleur</servlet-class>
+		<servlet-class>dev.sgp.web.EditerCollaborateurControlleur
+		</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>EditerCollaborateurControlleur</servlet-name>
 		<url-pattern>/collaborateurs/create</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>StatControlleur</servlet-name>
+		<servlet-class>dev.sgp.web.StatControlleur
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>StatControlleur</servlet-name>
+		<url-pattern>/statistique</url-pattern>
 	</servlet-mapping>
 </web-app>
