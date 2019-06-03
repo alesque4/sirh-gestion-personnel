@@ -5,8 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>SGP - App</title>
-	<link rel="stylesheet" type="text/css" 
-	href="<%=request.getContextPath()%>/bootstrap-4.3.1-dist/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/bootstrap-4.3.1-dist/css/bootstrap.css">
 </head>
 <body>
 	<h1>Les collaborateurs</h1>

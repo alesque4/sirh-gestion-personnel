@@ -1,7 +1,6 @@
 package dev.sgp.service;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -10,6 +9,10 @@ import dev.sgp.entite.VisiteWeb;
 public class StatService {
 	
 	private List<VisiteWeb> listVisite;
+	
+	public StatService() {
+		listVisite = new ArrayList<VisiteWeb>();
+	}
 	
 	public Integer getMinVisiteTimeByPath(String path) {
 		return getListVisite().stream()
@@ -49,7 +52,7 @@ public class StatService {
 	
 	
 	public boolean addVisite(VisiteWeb visite) {
-		return getListVisite().add(visite);
+		return (visite !=null)?getListVisite().add(visite):false;
 	}
 
 	public List<VisiteWeb> getListVisite() {

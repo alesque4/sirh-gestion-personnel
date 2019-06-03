@@ -1,7 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@ page isELIgnored="false" %>
-<%@ page import="dev.sgp.util.Constantes, dev.sgp.service.StatService, dev.sgp.web.StatControlleur"%>
+<%@ page import="dev.sgp.util.Constantes, dev.sgp.service.StatService, dev.sgp.web.StatControlleur,
+	java.util.List, dev.sgp.entite.VisiteWeb"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,18 +21,18 @@
 			<tr>
 				<th>Chemin</th>	<th>Nombre de visites</th>	<th>Min (ms)</th>	<th>Max (ms)</th>	<th>Moyenne (ms)</th>
 			</tr>
-			
-			<c:forEach items="${Constantes.STAT_SERVICE.getChemins()}" var="chemin">
-				<td>${chemin}</td>
-				<td>${Constantes.STAT_SERVICE.getNumberOfVisiteByPath(chemin)}</td>
-				<td>${Constantes.STAT_SERVICE.getMinVisiteTimeByPath(chemin)}</td>
-				<td>${Constantes.STAT_SERVICE.getMaxVisiteTimeByPath(chemin)}</td>
-				<td>${Constantes.STAT_SERVICE.getAverageVisiteTimeByPath(chemin)}</td>
-			</c:forEach>
-			
-			<tr>
-				<td>/sgp</td>	<td>12</td>	<td>10</td>	<td>300</td>	<td>40</td>
-			</tr>
+			<%
+				List<VisiteWeb> listVisite = Constantes.STAT_SERVICE.getListVisite();
+				for(String chemin : Constantes.STAT_SERVICE.getChemins()) {
+			%><tr>
+						<td><%=chemin.toString()%></td>
+						<td><%=Constantes.STAT_SERVICE.getNumberOfVisiteByPath(chemin)%></td>
+						<td><%=Constantes.STAT_SERVICE.getMinVisiteTimeByPath(chemin)%></td>
+						<td><%=Constantes.STAT_SERVICE.getMaxVisiteTimeByPath(chemin)%></td>
+						<td><%=Constantes.STAT_SERVICE.getAverageVisiteTimeByPath(chemin)%></td>
+			</tr><%
+				}
+			%>
 		</table>
 	</div>
 </body>
