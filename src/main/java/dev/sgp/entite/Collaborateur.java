@@ -19,6 +19,9 @@ public class Collaborateur {
 	private String photo;
 	private ZonedDateTime heureCreation;
 	private boolean actif;
+	//TP4
+	private String intitulePoste;
+	private Departement departement;
 	
 	public Collaborateur(String nom, String prenom, LocalDate dateNaissance, String adresse, String numSecu) {
 		this.nom = nom;
@@ -105,6 +108,26 @@ public class Collaborateur {
 	}
 	public void setActif(boolean actif) {
 		this.actif = actif;
+	}
+
+
+	public String getIntitulePoste() {
+		return intitulePoste;
+	}
+
+
+	public void setIntitulePoste(String intitulePoste) {
+		this.intitulePoste = intitulePoste;
+	}
+
+
+	public Departement getDepartement() {
+		return departement;
+	}
+
+
+	public void setDepartement(Departement departement) {
+		this.departement = departement;
 	}
 
 }
