@@ -2,11 +2,12 @@ package dev.sgp.entite;
 
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
+import java.util.ResourceBundle;
 
 public class Collaborateur {
 	
 	private static Integer compteur = 0;
-	private final static String SOCIETE = "BigBucksCorp";
+	private final static String SUFFIXE_MAIL = ResourceBundle.getBundle("application").getString("suffixe_mail");
 	
 	private String matricule;
 	private String nom;
@@ -25,9 +26,9 @@ public class Collaborateur {
 		this.dateNaissance = dateNaissance;
 		this.adresse = adresse;
 		this.numSecu = numSecu;
-		this.matricule = compteur.toString();
+		this.matricule = ""+nom.charAt(0)+prenom.charAt(0)+compteur.toString();
 		compteur++;
-		this.emailPro = nom+"."+prenom+"@"+SOCIETE+".com";
+		this.emailPro = nom+"."+prenom+"@"+SUFFIXE_MAIL;
 		this.photo = "FAKE_PHOTO";
 		this.heureCreation = ZonedDateTime.now();
 		this.actif = true;

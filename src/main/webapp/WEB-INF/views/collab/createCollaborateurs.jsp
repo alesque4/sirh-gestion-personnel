@@ -11,25 +11,32 @@
 <body>
 	<h1>Nouveau Collaborateur</h1>
 	
-	<form action="" method="get" id="formNouveauCollab">
+	<form action="" method="POST" id="formNouveauCollab">
 		<table>
 			<tr>
-				<td>Nom</td>	<td><input type="text" id="nom" required/></td>
+				<td>Nom</td>	<td><input type="text" name="nom"/></td>
 			</tr>
 			<tr>
-				<td>Prenom</td>	<td><input type="text" id="prenom" required/></td>
+				<td>Prenom</td>	<td><input type="text" name="prenom"/></td>
 			</tr>
 			<tr>
-				<td>Date de naissance</td>	<td><input type="date" id="dateNaissance" required/></td>
+				<td>Date de naissance</td>	<td><input type="date" name="dateNaissance"/></td>
 			</tr>
 			<tr>
-				<td>Adresse</td>	<td><input type="text" id="adresse" required/></td>
+				<td>Adresse</td>	<td><input type="text" name="adresse" /></td>
 			</tr>
 			<tr>
-				<td>N° de sécurité sociale</td>	<td><input type="text" id="numSecu" required/></td>
+				<td>N° de sécurité sociale (15 chiffres)</td>	<td><input type="text" name="numSecu" pattern="[0-9]{15}"/></td>
 			</tr>
 		</table>
 		<input type="submit" value="Enregistrer"/>
 	</form>
+	<%
+		if(request.getAttribute("erreur") != null){
+	%>
+		<p style="color:red;"><%=request.getAttribute("erreur") %></p>
+	<%
+		}
+	%>
 </body>
 </html>
