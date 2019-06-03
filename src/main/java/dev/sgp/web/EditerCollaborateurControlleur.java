@@ -39,7 +39,6 @@ public class EditerCollaborateurControlleur extends HttpServlet {
 		prenom = req.getParameter("prenom");
 		dateRecue = req.getParameter("dateNaissance");
 		if(dateRecue != null && !dateRecue.equals("")) {
-			System.out.println("date : "+dateRecue);
 			dateNaissance = LocalDate.parse(dateRecue);
 		}
 		
@@ -73,7 +72,6 @@ public class EditerCollaborateurControlleur extends HttpServlet {
 				listErreur.add("n° Sécu");
 			}
 			messageErreur = "Erreur 400 : "+listErreur.stream().collect(Collectors.joining(", "));
-			System.out.println("msgError : "+messageErreur);
 			
 			//Envoi du formulaire
 			req.setAttribute("erreur", messageErreur);
